@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorApp.Models;
 using RazorApp.Services;
@@ -19,6 +20,12 @@ namespace RazorApp.Pages
         public void OnGet()
         {
             Tasks = _taskService.GetAllTasks();
+        }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            _taskService.DeleteTask(id);
+            return RedirectToPage();
         }
     }
 }

@@ -1,0 +1,27 @@
+﻿@page
+@model RazorApp.Pages.TasksModel
+@{
+    ViewData["Title"] = "Задачи";
+}
+
+<h2><i class="bi bi-list-task"></i> Список задач</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Описание</th>
+            <th>Создана</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.CreatedAt.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
